@@ -11,7 +11,7 @@ const ToDoForm = props => {
         placeholder="task..."
       />
       <button type="submit"> Add ToDo </button>
-      <button type="submit"> Clear Completed </button>
+      <button onClick={props.removeToDo} type="submit"> Clear Completed </button>
     </form>
   );
 };

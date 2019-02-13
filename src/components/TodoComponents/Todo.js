@@ -2,7 +2,12 @@ import React from "react"
 
 const ToDo = props => {
   return (
-    <div> {props.todo.task} </div>
+    <div>
+      <p>{props.toDo.task}</p>
+      <button onClick={props.remove}>
+        click me
+      </button>
+    </div>
   );
 }
 

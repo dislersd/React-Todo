@@ -1,65 +1,18 @@
-toDoArray = [clean, cook, sleep]
+import React from "react";
+import ToDo from "./Todo";
 
-
-class ToDoList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      ToDo: toDoArray,
-      task: "",
-      id: Date.now(),
-      completed: false
-    };
-  }
-
-  // addStudent = e => {
-  //   e.preventDefault();
-  //   const newStudent = {
-  //     name: this.state.name,
-  //     identity: this.state.identity,
-  //     img: this.state.img,
-  //     age: this.state.age,
-  //     bestFriend: this.state.bestFriend
-  //   };
-
-  //   this.setState({
-  //     students: [...this.state.students, newStudent],
-  //     name: "",
-  //     identity: "",
-  //     img: "",
-  //     age: "",
-  //     bestFriend: ""
-  //   });
-  // };
-
-  // handleChanges = e => {
-  //   console.log(e.target.value);
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
-
-  render() {
-    return (
-      <div>
-        <h1>ToDo List:</h1>
-        <div className="class-list">
-          {this.state.toDoArray.map((toDofromMap, index) => (
-            <ToDo key={index} task={toDofromMap} />
-          ))}
-        </div>
-        {/* <StudentForm
-          addStudent={this.addStudent}
-          name={this.state.name}
-          handleChanges={this.handleChanges}
-          identity={this.state.identity}
-          img={this.state.img}
-          age={this.state.age}
-          bestFriend={this.state.bestFriend}
-        /> */}
+const ToDoList = props => {
+  return (
+    <div className="todo-all">
+      <div className="todo-list">
+        {props.toDo.map((toDoFromMap, index) => 
+          <ToDo key={index} toDo={toDoFromMap} remove={props.remove}/>
+        )}
       </div>
-    );
-  }
-}
+      <div className="todo-form">
+      </div>
+    </div>
+  )
+};
 
 export default ToDoList;
