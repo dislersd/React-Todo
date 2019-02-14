@@ -1,19 +1,39 @@
 import React from "react";
 
-const ToDoForm = props => {
-  return (
-    <form>
-      <input
-        type="text"
-        value={props.task}
-        onChange={props.handleChanges}
-        name="task"
-        placeholder="task..."
-      />
-      <button onClick={props.addToDo} type="submit"> Add ToDo </button>
-      <button onClick={props.clearCompleted} type="submit"> Clear Completed </button>
-    </form>
-  );
+class ToDoForm extends React.Component {
+constructor(props) {
+  super(props);
+  this.state = {
+    task: ''
+  }
+}
+
+handleChanges = e => {
+  this.setState({
+    [e.target.name]: e.target.value
+  })
+};
+
+submitTask = e => {
+  this.setState({ task: ''});
+  this.props.addToDo(e, this.state.task)
+}
+
+render() {
+    return (
+      <form>
+        <input
+          type="text"
+          value={this.state.task}
+          onChange={this.handleChanges}
+          name="task"
+          placeholder="task..."
+        />
+        <button onClick={this.submitTask} type="submit"> Add ToDo </button>
+        <button onClick={this.props.clearCompleted} type="submit"> Clear Completed </button>
+      </form>
+    );
+}
 };
 
 export default ToDoForm;

@@ -27,23 +27,17 @@ class App extends React.Component {
     };
   }
 
-  addToDo = e => {
+  addToDo = (e, task) => {
     e.preventDefault();
     const newToDo = {
-      task: this.state.task,
+      task: task,
       id: Date.now(),
       completed: false
   };
     this.setState({
       toDo: [...this.state.toDo, newToDo],
-      task: " "
+      task: ""
     });
-  };
-
-  handleChanges = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
   };
 
   toggle = itemId => {
@@ -73,7 +67,6 @@ class App extends React.Component {
         />
         <ToDoForm 
         value={this.state.task}  
-        handleChanges={this.handleChanges}
         addToDo={this.addToDo}
         clearCompleted={this.clearCompleted}
         />
