@@ -36,13 +36,9 @@ class App extends React.Component {
   };
     this.setState({
       toDo: [...this.state.toDo, newToDo],
-      task: ""
+      task: " "
     });
   };
-
-  removeItem = e => {
-    e.target.classList.toggle('color')
-  }
 
   // removeToDo = e => {
   //   e.preventDefault();
@@ -52,18 +48,34 @@ class App extends React.Component {
   //   })
   // }
 
+
   handleChanges = e => {
     this.setState({
-      task: e.target.value
+      [e.target.name]: e.target.value
     })
   };
+
+  toggle = itemId => {
+    this.setState({
+      toDo: this.state.toDo.map( item => {
+        if (itemId === item.id) {
+          return { ...item, completed: !item.completed };
+        }
+        return item;
+      })
+    })
+  }
 
   render() {
     return (
       <div>
-        <ToDoList toDo={this.state.toDo} remove={this.removeItem}/>
+        <ToDoList 
+        toDo={this.state.toDo} 
+        complete={this.complete}
+        toggle={this.toggle}  
+        />
         <ToDoForm 
-        value={this.state.inputValue}  
+        value={this.state.task}  
         handleChanges={this.handleChanges}
         addToDo={this.addToDo}
         removeToDo={this.removeToDo}

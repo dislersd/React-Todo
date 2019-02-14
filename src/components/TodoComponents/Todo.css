@@ -209,3 +209,20 @@ p {
 h3 {
   color: whitesmoke;
 }
+
+li {
+  cursor: pointer;
+  font-size: 20px;
+  color: rgb(63, 63, 62);
+}
+
+.todo-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.strike {
+  text-decoration: line-through;
+}

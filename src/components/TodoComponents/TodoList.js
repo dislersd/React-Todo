@@ -4,13 +4,13 @@ import ToDo from "./Todo";
 const ToDoList = props => {
   return (
     <div className="todo-all">
-      <div className="todo-list">
         {props.toDo.map((toDoFromMap, index) => 
-          <ToDo key={index} toDo={toDoFromMap} remove={props.remove}/>
+          <ToDo 
+          key={index}
+          toDo={toDoFromMap}
+          toggle={props.toggle}
+          />
         )}
-      </div>
-      <div className="todo-form">
-      </div>
     </div>
   )
 };

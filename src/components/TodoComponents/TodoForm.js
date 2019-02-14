@@ -2,7 +2,7 @@ import React from "react";
 
 const ToDoForm = props => {
   return (
-    <form onSubmit={props.addToDo}>
+    <form>
       <input
         type="text"
         value={props.task}
@@ -10,10 +10,17 @@ const ToDoForm = props => {
         name="task"
         placeholder="task..."
       />
-      <button type="submit"> Add ToDo </button>
-      <button onClick={props.removeToDo} type="submit"> Clear Completed </button>
+      <button onClick={props.addToDo} type="submit"> Add ToDo </button>
+      <button type="submit"> Clear Completed </button>
     </form>
   );
 };
 
 export default ToDoForm;
+
+
+/*
+
+newToDo
+
+*/

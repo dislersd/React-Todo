@@ -2,12 +2,9 @@ import React from "react"
 
 const ToDo = props => {
   return (
-    <div>
-      <p>{props.toDo.task}</p>
-      <button onClick={props.remove}>
-        click me
-      </button>
-    </div>
+    <ul>
+      <li onClick={() => props.toggle(props.toDo.id)}> {props.toDo.task} </li>
+    </ul>
   );
 }
 
