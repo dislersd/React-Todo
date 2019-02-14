@@ -58,17 +58,25 @@ class App extends React.Component {
     })
   }
 
+  search = (e) => {
+    this.setState({
+      toDo: this.state.toDo.filter( item => item.task == e.target.value)
+    })
+  }
+
+
   render() {
     return (
       <div className='app'>
       <header>
         <h1>To Do App</h1>
-        <p>Click your to do task when complete</p>
+        <p>Click your task when complete</p>
       </header>
         <ToDoForm 
         value={this.state.task}  
         addToDo={this.addToDo}
         clearCompleted={this.clearCompleted}
+        search={this.search}
         />
         <ToDoList 
         toDo={this.state.toDo} 

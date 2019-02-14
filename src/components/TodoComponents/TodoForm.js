@@ -22,17 +22,29 @@ submitTask = e => {
 render() {
     return (
       <form className="todo-form">
-        <input
+        <div className="form-inputs">
+          <input 
           type="text"
+          name="search"
           autoComplete="off"
-          value={this.state.task}
-          onChange={this.handleChanges}
-          name="task"
-          placeholder="enter a to do..."
-        />
+          placeholder="search for task"
+          onChange={this.props.search}
+          />
+          <input
+            className="task-input"
+            type="text"
+            autoComplete="off"
+            value={this.state.task}
+            onChange={this.handleChanges}
+            name="task"
+            placeholder="enter a to do..."
+          />
+        </div>
 
-        <button className='add-btn' onClick={this.submitTask} type="submit"> Add </button>
-        <button className='clear-btn' onClick={this.props.clearCompleted} type="submit"> Clear Completed </button>
+        <div className="form-btns">
+          <button className='add-btn' onClick={this.submitTask} type="submit"> Add </button>
+          <button className='clear-btn' onClick={this.props.clearCompleted} type="submit"> Clear </button>
+        </div>
       </form>
     );
 }

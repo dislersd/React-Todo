@@ -59,9 +59,10 @@ button:focus {
 }
 
 header {
-  margin: 5px 20px 50px 20px;
+  margin: 5px 20px 10px 15px;
   border-bottom: 1px solid #000;
   padding-bottom: 5px;
+  width: 100%;
 }
 
 h1 {
@@ -84,7 +85,7 @@ input {
   font-size: 20px;
   padding: 5px;
   border-bottom: 2px solid #EF5E4A;
-  margin: 0 10px;
+  margin: 5px 10px;
 }
 
 input::placeholder {
@@ -108,7 +109,7 @@ li {
 }
 
 button {
-  margin: 0 20px;
+  margin: 5px 20px;
   height: 30px;
   border: none;
   border-radius: 5px;
@@ -127,7 +128,7 @@ button {
   background-color: #2E3842;
   border-radius: 5px;
   width: 100%;
-  max-width: 600px;
+  max-width: 450px;
 }
 
 .complete {
@@ -137,15 +138,27 @@ button {
 
 .todo-form {
   display: flex;
-  justify-content: space-around;
-  align-items: baseline;
 }
 
-.add-btn {
-  width: 50px;
+.form-btns {
+  display: flex;
+  align-items: flex-end;
+}
+.form-inputs {
+  display: flex;
+  flex-direction: column;
 }
 
-.clear-btn {
+.task-input {
+  margin-top: 40px;
+}
+
+.add-btn:hover {
+  background-color: rgb(74, 239, 102);
+}
+
+.clear-btn:hover {
+  background-color: #EF5E4A;
 }
 
 
