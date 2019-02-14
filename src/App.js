@@ -60,7 +60,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='app'>
         <ToDoList 
         toDo={this.state.toDo} 
         toggle={this.toggle}  

@@ -63,6 +63,7 @@ form {
   background-color: #fff;
   padding: 1rem;
   flex-flow: column;
+  border-radius: 5px;
 }
 
 form > input {
@@ -226,8 +227,18 @@ li {
   padding: 20px;
   font-size: 30px;
   border-radius: 10px;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .complete {
   text-decoration: line-through;
+  background-color: red;
+}
+
+.app {
+  background-color: #f3f3f3;
+  border: 2px solid rgb(96, 96, 97);
+  border-radius: 5px;
+  margin: 100px;
+  padding: 30px;
 }
