@@ -11,7 +11,7 @@ const ToDoForm = props => {
         placeholder="task..."
       />
       <button onClick={props.addToDo} type="submit"> Add ToDo </button>
-      <button type="submit"> Clear Completed </button>
+      <button onClick={props.clearCompleted} type="submit"> Clear Completed </button>
     </form>
   );
 };
@@ -19,8 +19,4 @@ const ToDoForm = props => {
 export default ToDoForm;
 
 
-/*
 
-newToDo
-
-*/

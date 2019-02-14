@@ -40,15 +40,6 @@ class App extends React.Component {
     });
   };
 
-  // removeToDo = e => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     toDo: [],
-  //     task: ''
-  //   })
-  // }
-
-
   handleChanges = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -66,6 +57,13 @@ class App extends React.Component {
     })
   }
 
+  clearCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      toDo: this.state.toDo.filter(item => !item.completed)
+    })
+  }
+
   render() {
     return (
       <div>
@@ -77,7 +75,7 @@ class App extends React.Component {
         value={this.state.task}  
         handleChanges={this.handleChanges}
         addToDo={this.addToDo}
-        removeToDo={this.removeToDo}
+        clearCompleted={this.clearCompleted}
         />
       </div>
     );
