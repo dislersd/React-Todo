@@ -23,7 +23,8 @@ class App extends React.Component {
       toDo: toDoArray,
       task: "",
       id: Date.now(),
-      completed: false
+      completed: false,
+      filter: []
     };
   }
 
@@ -60,7 +61,7 @@ class App extends React.Component {
 
   search = (e) => {
     this.setState({
-      toDo: this.state.toDo.filter( item => item.task == e.target.value)
+      toDo: this.state.toDo.filter( item => item.task.includes(e.target.value))
     })
   }
 
@@ -82,9 +83,14 @@ class App extends React.Component {
         toDo={this.state.toDo} 
         toggle={this.toggle}  
         />
+
+
       </div>
     );
   }
 }
 
 export default App;
+
+
+
