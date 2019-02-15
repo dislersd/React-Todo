@@ -8,6 +8,7 @@ const ToDo = props => {
       onClick={() => props.toggle(props.toDo.id)}
       > {props.toDo.task} </li>
     </ul>
+
   );
 }
 
