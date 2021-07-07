@@ -23,14 +23,15 @@ class App extends React.Component {
       toDo: toDoArray,
       task: "",
       id: Date.now(),
-      completed: false
+      completed: false,
+      filter: []
     };
   }
 
-  addToDo = e => {
+  addToDo = (e, task) => {
     e.preventDefault();
     const newToDo = {
-      task: this.state.task,
+      task: task,
       id: Date.now(),
       completed: false
   };
@@ -40,37 +41,56 @@ class App extends React.Component {
     });
   };
 
-  removeItem = e => {
-    e.target.classList.toggle('color')
+  toggle = itemId => {
+    this.setState({
+      toDo: this.state.toDo.map( item => {
+        if (itemId === item.id) {
+          return { ...item, completed: !item.completed };
+        }
+        return item;
+      })
+    })
   }
 
-  // removeToDo = e => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     toDo: [],
-  //     task: ''
-  //   })
-  // }
-
-  handleChanges = e => {
+  clearCompleted = e => {
+    e.preventDefault();
     this.setState({
-      task: e.target.value
+      toDo: this.state.toDo.filter(item => !item.completed)
     })
-  };
+  }
+
+  search = (e) => {
+    this.setState({
+      toDo: this.state.toDo.filter( item => item.task.includes(e.target.value))
+    })
+  }
+
 
   render() {
     return (
-      <div>
-        <ToDoList toDo={this.state.toDo} remove={this.removeItem}/>
+      <div className='app'>
+      <header>
+        <h1>To Do App</h1>
+        <p>Click your task when complete</p>
+      </header>
         <ToDoForm 
-        value={this.state.inputValue}  
-        handleChanges={this.handleChanges}
+        value={this.state.task}  
         addToDo={this.addToDo}
-        removeToDo={this.removeToDo}
+        clearCompleted={this.clearCompleted}
+        search={this.search}
         />
+        <ToDoList 
+        toDo={this.state.toDo} 
+        toggle={this.toggle}  
+        />
+
+
       </div>
     );
   }
 }
 
 export default App;
+
+
+
